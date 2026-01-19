@@ -1,0 +1,41 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f3f3f3;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 30px;
+    background: #222;
+}
+
+/* Logo */
+.logo {
+    height: 80px; /* diminui o tamanho da logo */
+}
+
+/* Menu */
+nav a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 18px;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+/* Conteúdo */
+main {
+    padding: 40px;
+}
+.produto img {
+    display: block;
+    margin-bottom: 10px;
+}
+

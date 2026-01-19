@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Site Arcanjo Artes Gráficas</title>
+
+    <!-- ======== CSS (ESTILIZAÇÃO) ======== -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+        }
+
+        /* Header */
+        header {
+            background: white;
+            text-align: center;
+            padding: 15px 0;
+            border-bottom: 2px solid #ddd;
+        }
+
+        header img {
+            width: 200px;
+            height: auto;
+        }
+
+        /* Menu */
+        nav {
+            background: #222;
+            color: white;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 12px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* Conteúdo principal */
+        .conteudo {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        /* Cartões de produto */
+        .produto {
+            background: white;
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+        }
+
+        button {
+            background: #d10000;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #a00000;
+        }
+
+        /* Carrinho */
+        #carrinho {
+            margin-top: 20px;
+            padding: 15px;
+            background: #fff3cd;
+            border: 1px solid #ffeeba;
+            border-radius: 8px;
+        }
+
+        /* Rodapé */
+        footer {
+            margin-top: 40px;
+            text-align: center;
+            padding: 15px;
+            background: #111;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+
+    <!-- ======== HEADER ======== -->
+    <header>
+        <img src="imagens/Logo.jpg" alt="Logo">
+    </header>
+
+    <!-- ======== MENU ======== -->
+    <nav>
+        <a href="#">Início</a>
+    </nav>
+
+    <!-- ======== CONTEÚDO ======== -->
+    <div class="conteudo">
+
+        <h1>Arcanjo Artes Gráficas</h1>
+<p>Gráfica especializada em personalização de brindes.</p>
+
+<!-- ======== PRODUTO 1 — CANECA ======== -->
+<div class="produto">
+    <img src="imagens/caneca.png" alt="Caneca branca" style="width:130px; border-radius:6px;">
+    <h2>Caneca Personalizada</h2>
+    <p>R$ 35,00</p>
+    <button onclick="adicionarCarrinho('Caneca Personalizada', 35)">Adicionar</button>
+</div>
+
+<!-- ======== PRODUTO 2 — CAMISETA ======== -->
+<div class="produto">
+    <img src="imagens/camisa.png" alt="Camiseta branca" style="width:130px; border-radius:6px;">
+    <h2>Camiseta Personalizada</h2>
+    <p>R$ 35,00</p>
+    <button onclick="adicionarCarrinho('Camiseta Personalizada', 35)">Adicionar</button>
+</div>
+
+
+        <div id="carrinho">
+            <h3>🛒 Carrinho</h3>
+            <ul id="itens"></ul>
+            <p><strong>Total:</strong> R$ <span id="total">0</span></p>
+            <button onclick="finalizarPedido()">Finalizar Pedido</button>
+        </div>
+
+    </div>
+
+    <!-- ======== RODAPÉ ======== -->
+    <footer>
+        © 2025 • Arcanjo Artes Gráficas • Todos os direitos reservados
+    </footer>
+
+    <!-- ======== JAVASCRIPT ======== -->
+    <script>
+        let carrinho = [];
+        let total = 0;
+
+        function adicionarCarrinho(produto, preco) {
+            carrinho.push({ produto, preco });
+            total += preco;
+            atualizarCarrinho();
+        }
+
+        function atualizarCarrinho() {
+            const lista = document.getElementById("itens");
+            lista.innerHTML = "";
+            carrinho.forEach(item => {
+                let li = document.createElement("li");
+                li.textContent = `${item.produto} - R$ ${item.preco}`;
+                lista.appendChild(li);
+            });
+            document.getElementById("total").textContent = total;
+        }
+
+        function finalizarPedido() {
+            if (carrinho.length === 0) {
+                alert("Seu carrinho está vazio!");
+                return;
+            }
+            let mensagem = "Meu pedido:%0A";
+            carrinho.forEach(item => {
+                mensagem += `- ${item.produto} (R$ ${item.preco})%0A`;
+            });
+            mensagem += `Total: R$ ${total}`;
+
+            // número aqui
+            window.open(`https://wa.me/5524992006197?text=${mensagem}`, "_blank");
+        }
+    </script>
+
+</body>
+</html>
