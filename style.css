@@ -38,5 +38,12 @@ main {
     display: block;
     margin-bottom: 10px;
 }
+/* LOGO */
+header img {
+    width: 280px;
+    height: auto;
+}
+
+
 
 
