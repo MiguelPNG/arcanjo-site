@@ -15,7 +15,7 @@ header {
 
 /* Logo */
 .logo {
-    height: 80px; /* diminui o tamanho da logo */
+    height: 200px; /* diminui o tamanho da logo */
 }
 
 /* Menu */
@@ -38,4 +38,5 @@ main {
     display: block;
     margin-bottom: 10px;
 }
+
 
