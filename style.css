@@ -15,7 +15,8 @@ header {
 
 /* Logo */
 .logo {
-    height: 200px; /* diminui o tamanho da logo */
+    height: 320px;
+    height: auto;/* diminui o tamanho da logo */
 }
 
 /* Menu */
@@ -40,7 +41,7 @@ main {
 }
 /* LOGO */
 header img {
-    width: 280px;
+    width: 320px;
     height: auto;
 }
 
